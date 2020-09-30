@@ -1,8 +1,6 @@
-FROM ubuntu
-RUN apt-get update
-RUN DEBIAN_FRONTEND="noninteractive" apt-get -y install tzdata
-RUN apt-get -y install apache2
+FROM centos
+RUN yum install httpd -y update
+RUN systemctl restart httpd
 ADD . /var/www/html
-ENTRYPOINT apachectl -D FOREGROUND
 ENV name DevopsIntellipaat
 
