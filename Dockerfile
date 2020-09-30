@@ -1,7 +1,8 @@
 FROM centos
 RUN yum install httpd -y 
+COPY index.html /var/www/html/
+CMD [./usr/sbin/httpd., .-D., .FOREGROUND.]
+EXPOSE 80
 RUN systemctl restart httpd
-RUN echo "Welcome " >> /var/www/html/index.html
-ADD . /var/www/html
 ENV name DevopsIntellipaat
 
